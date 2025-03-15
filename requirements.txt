@@ -1,0 +1,1 @@
+streamlit pandas torch pypdf2 sentence-transformers rank-bm25 faiss-cpu langchain-community langchain
