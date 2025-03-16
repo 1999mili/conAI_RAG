@@ -12,7 +12,8 @@ from gpt4all import GPT4All
 from langchain.prompts import PromptTemplate
 import wget
 url = 'https://huggingface.co/macoron/ggml-gpt4all-j-v1.3-groovy/resolve/main/ggml-gpt4all-j-v1.3-groovy.bin'
-filename = wget.download(url)
+if not os.path.isfile('/content/ggml-gpt4all-j-v1.3-groovy.bin'):
+    filename = wget.download(url)
 # Load the embedding model (open-source)
 embedding_model = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
 
@@ -45,7 +46,7 @@ if uploaded_file is not None:
 
     # Small open-source LLM (GPT4All - 7B model)
     #llm = GPT4All(model_name="ggml-gpt4all-j-v1.3-groovy.bin", model_path="E:\MultiStage_RAG\\venv\Lib\site-packages\gpt4all")
-    llm = GPT4All(model_name=filename, model_path="/mount/src/conai_rag")
+    llm = GPT4All(model_name="ggml-gpt4all-j-v1.3-groovy.bin", model_path="/content")
 
     # Input guardrail: Basic validation
     def validate_query(query):
