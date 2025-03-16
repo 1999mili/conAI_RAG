@@ -1,3 +1,4 @@
+wget
 streamlit 
 pandas 
 torch 
@@ -7,3 +8,4 @@ rank-bm25
 faiss-cpu 
 langchain-community 
 langchain
+gpt4all==0.3.0
